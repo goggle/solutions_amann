@@ -1,0 +1,58 @@
+\chapter{Konvergenz}
+\section{Konvergenz von Folgen}
+\section{Das Rechnen mit Zahlenfolgen}
+\section{Normierte Vektorräume}
+\section{Monotone Folgen}
+\section{Uneigentliche Konvergenz}
+\section{Vollständigkeit}
+\section{Reihen}
+\section{Absolute Konvergenz}
+\section{Potenzreihen}
+
+\setcounter{aufgabe}{1}
+\begin{aufgabe}
+Die Potenzreihe $a = \sum_k (1+k) X^k$ hat Konvergenzradius $1$ und
+für die durch $a$ dargestellte Funktion $\underline a$ gilt: 
+$\underline{a}(z) = (1-z)^{-2}$ für $|z| < 1$.
+\end{aufgabe}
+\begin{proof}
+Sei $a_k = 1+k$. Dann ist $a = \sum_k a_k X^k$. Es gilt:
+\[
+\lim_{k \to \infty} \left| \frac{a_k}{a_{k+1}} \right| = \lim_{k \to \infty}
+	\left| \frac{1+k}{2+k} \right| = 1
+\]
+Also existiert dieser Grenzwert und nach Satz 9.4 ist
+\[
+\rho_a = \lim_{k \to \infty} \left| \frac{a_k}{a_{k+1}} \right| = 1
+\]
+der Konvergenzradius von $a$.
+
+Seien $b := \sum_k b_k X^k := \sum_k X^k$ und $c := \sum_k c_k X^k := \sum_k k X^k$.
+Diese Reihen haben ebenfalls Konvergenzradius $1$. Also gilt für $z \in \mathbb K$, 
+$|z| < 1$:
+\[
+\underline a(z) = \sum_{k=0}^\infty (1+k) z^k = \sum_{k=0}^\infty z^k + \sum_{k=0}^\infty k z^k
+	= \underline b(z) + \underline c(z)
+\]
+Wir wissen bereits, dass $\underline b(z) = \frac{1}{1-z}$. Wir müssen noch $\underline c(z)$
+berechnen. Sei $s_n := \sum_{k=0}^n k z^k$.
+
+\begin{align*}
+(1-z) s_n &= (1-z) \sum_{k=0}^n k z^k = \sum_{k=0}^n kz^k - k z^{k+1} \\
+					&= \sum_{k=0}^n k z^k - \sum_{k=1}^{n+1} (k-1) z^k
+					= 0 + \sum_{k=1}^n ( k z^k - (k-1) z^k ) - n z^{n+1} \\
+					&= \sum_{k=0}^{n-1} z^{k+1} - n z^{n+1} = z \sum_{k=0}^{n-1} z^k - n z^{n+1} \\
+					&= z \left( \frac{1-z^n}{1-z} \right) - \frac{(1-z) n z^{n+1}}{1-z}
+					= \frac{z - z^{n+1} - n z^{n+1} + n z^{n+2}}{1-z} \\
+					&= \frac{z - (n+1) z^{n+1} + n z^{n+2}}{1-z}
+\end{align*}
+Also haben wir $s_n \to \frac{z}{(1-z)^2}$ für $n \to \infty$ und es folgt
+\[
+\underline c(z) = \sum_{k=0}^\infty k z^k = \frac{z}{(1-z)^2} .
+\]
+Somit haben wir
+\[
+\underline a(z) = \underline b(z) + \underline c(z) = \frac{1}{1-z} + \frac{z}{(1-z)^2}
+	= \frac{1 -z + z}{(1-z)^2} = \frac{1}{(1-z)^2} .
+\]
+\end{proof}

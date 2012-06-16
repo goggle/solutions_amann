@@ -1,0 +1,90 @@
+\documentclass[a4paper,11pt,DIV0]{scrreprt}
+
+\usepackage{ucs}
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{scrpage2}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{listings, color}
+\usepackage{graphicx}
+\usepackage[ngerman]{babel}
+\usepackage{moreverb}
+%\usepackage{tabularx}
+
+\KOMAoption{chapterprefix}{}
+
+\lstset{language=Matlab, numbers=left, numberstyle=\tiny, tabsize=4,%
+	keywordstyle=\color{blue}\bfseries, commentstyle=\color{gruen}\ttfamily,%
+	basicstyle=\footnotesize, identifierstyle=\ttfamily, %
+	stringstyle=\color{red}, showstringspaces=false, %
+	stepnumber=5, firstnumber=1, breaklines=true,%
+	numberfirstline=true, emphstyle=\bfseries, frame=single}
+
+\renewcommand{\thechapter}{\Roman{chapter}}
+\renewcommand{\thesection}{\arabic{section}}
+
+
+\newtheoremstyle{aufgabenstyle}%
+	{}%spaceabove
+	{}%spacebelow
+	{\bfseries}%bodyfont
+	{}%indent
+	{\scshape}%headfont
+	{.}%headpunctuation
+	{}%headspace
+	{}%headspec
+	%{\thmname{#1}}%\thmnumber{ #2}}%headspec
+
+\theoremstyle{definition}
+\newtheorem{aufgabe}{Aufgabe}[section]
+
+%\ihead{}
+%\ohead{}
+%\setlength{\headheight}{4em}
+%\setheadsepline{0.5pt}
+%\pagestyle{scrheadings}
+
+\definecolor{gruen}{rgb}{0.25,0.6,0.1}
+
+\parindent0pt
+
+\makeatletter 
+\renewenvironment{proof}[1][\proofname]{% 
+% 
+\setlength{\topsep}{0pt} 
+\pushQED{\qed}% 
+\normalfont %\topsep6\p@\@plus6\p@\relax 
+\trivlist 
+\item[\hskip\labelsep 
+	\bfseries 
+	#1\@addpunct{.}]\ignorespaces 
+}{% 
+	\popQED\endtrivlist\@endpefalse 
+} 
+\makeatother 
+
+
+\begin{document}
+
+\title{Lösungen: Amann, Escher - Analysis}
+\author{}
+\date{}
+\maketitle
+\newpage
+
+\input{kapitel01}
+\input{kapitel02}
+\input{kapitel03}
+\input{kapitel04}
+\input{kapitel05}
+\input{kapitel06}
+\input{kapitel07}
+\input{kapitel08}
+
+
+
+
+
+
+
+\end{document}
