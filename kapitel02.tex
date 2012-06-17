@@ -10,6 +10,7 @@ Es sei $(x_n)$ rekursiv definiert durch
 x_0 := 1, \quad x_{n+1} := 1 + \frac{1}{x_n}, \qquad n \in \mathbb N .
 \]
 Man zeige, dass die Folge $(x_n)$ konvergiert und bestimme ihren Grenzwert.
+\end{aufgabe}
 \begin{proof}
 Wir zeigen zuerst, dass $x_n > 1$ für $n \geq 1$.
 Für $n = 1$ haben wir $x_1 = 1 + \frac 1 1 = 2$.
@@ -72,7 +73,27 @@ g = \lim_{n \to \infty} x_n = \lim_{n \to \infty} x_{n+1}
 \]
 Diese Gleichung hat die positive Lösung $g = \frac{{1} + \sqrt{5}}{2}$.
 \end{proof}
-\end{aufgabe}
+
+\begin{proof}[Alternativer Beweis]
+Wir zeigen per Induktion $|x_n - g| \leq \frac{1}{g^{n+1}}$, wobei $g$ die positive Lösung der Gleichung
+$g = 1 + \frac 1 g $ bezeichnet.
+
+Für $n = 0$ haben wir $|x_0 - g| = | 1 - g | = \left| - \frac 1 g \right| \leq \frac{1}{g^1}$.
+
+Sei nach Induktionsannahme $|x_{n-1} - g | \leq \frac{1}{g^n}$. Dann folgt wegen
+$x_n \geq 1$ für alle $n \in \mathbb N$:
+\begin{align*}
+| x_n - g | 
+	&= \left| 1 + \frac{1}{x_{n-1}} - \left( 1 + \frac 1 g \right) \right|
+	= \left| \frac{1}{x_{n-1}} - \frac 1 g \right| \\
+	&= \left| \frac{g - x_{n-1}}{x_{n-1} \cdot g} \right|
+	\leq \frac 1 g \cdot | x_{n-1} - g|
+	\leq \frac 1 g \cdot \frac{1}{g^n} = \frac{1}{g^{n+1}}
+\end{align*}
+Da $g > 1$, folgt $x_n \to g$.
+\end{proof}
+
+
 
 \section{Uneigentliche Konvergenz}
 \section{Vollständigkeit}
