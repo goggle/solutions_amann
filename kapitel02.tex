@@ -93,6 +93,35 @@ $x_n \geq 1$ für alle $n \in \mathbb N$:
 Da $g > 1$, folgt $x_n \to g$.
 \end{proof}
 
+\begin{aufgabe}
+Die \textbf{Fibonacci-Zahlen} $f_n$ sind rekursiv definiert durch
+\[
+f_0 := 0 \ , \quad f_1 := 1 \ , \quad f_{n+1} := f_n + f_{n-1} \ , \; n \in \mathbb N^\times
+\]
+Man beweise, dass $\lim \left( \frac{ f_{n+1}}{f_n} \right) = g$, wobei $g$ der
+Grenzwert aus Aufgabe 8 bezeichne.
+\end{aufgabe}
+\begin{proof}
+Die Folge der Fibonacci-Zahlen ist monoton wachsend und für $n \geq 1$ gilt $f_n \geq 1$.
+Sei $g$ der Grenzwert aus Aufgabe 8, also die positive Lösung der quadratischen Gleichung
+$g = 1 + \frac 1 g$.
+Sei $F_n := \frac{f_{n+1}}{f_n}$, $n \in \mathbb N^\times$. Wir wollen beweisen, dass
+die Folge $(F_n)_{n \geq 1}$ den Grenzwert $g$ hat:
+\begin{align*}
+| F_n - g |
+	&= \left| \frac{ f_{n+1}}{f_n} - g \right|
+	= \left| \frac{f_n + f_{n-1}}{f_n} - g \right|
+	= \left| 1 + \frac{1}{F_{n-1}} - \left( 1 + \frac 1 g \right) \right| \\
+	&= \left| \frac{1}{F_{n-1}} - \frac 1 g \right|
+	= \left| \frac{g - F_{n-1}}{ F_{n-1} \cdot g } \right|
+	\leq \frac 1 g | F_{n-1} - g | 
+	\leq \ldots \leq \left( \frac 1 g \right)^{n-1} |F_1 - g|
+\end{align*}
+Da $0 < \frac 1 g = g -1 < 1$ folgt
+$\left( \frac 1 g \right)^n \to 0$ für $n \to \infty$ und damit
+$\lim F_n = g$.
+\end{proof}
+
 
 
 \section{Uneigentliche Konvergenz}
