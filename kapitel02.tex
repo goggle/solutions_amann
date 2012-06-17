@@ -3,6 +3,77 @@
 \section{Das Rechnen mit Zahlenfolgen}
 \section{Normierte Vektorräume}
 \section{Monotone Folgen}
+\setcounter{aufgabe}{7}
+\begin{aufgabe}
+Es sei $(x_n)$ rekursiv definiert durch
+\[
+x_0 := 1, \quad x_{n+1} := 1 + \frac{1}{x_n}, \qquad n \in \mathbb N .
+\]
+Man zeige, dass die Folge $(x_n)$ konvergiert und bestimme ihren Grenzwert.
+\begin{proof}
+Wir zeigen zuerst, dass $x_n > 1$ für $n \geq 1$.
+Für $n = 1$ haben wir $x_1 = 1 + \frac 1 1 = 2$.
+Nehmen wir an, es gilt $x_n > 1$, so folgt $x_{n+1} = 1 + \frac{1}{x_n} > 1$.
+Unmittelbar aus der rekursiven Definition $x_{n+1} = 1 + \frac{1}{x_n}$ und
+aus $x_n > 1$ für $n \geq 1$ folgt $x_n < 2$ für $n \geq 2$.
+Für $n \geq 1$ gilt sogar $x_n \in \left[ 1.5, \  2 \right]$, da
+\[
+1.5 = 1 + \frac 1 2 \leq x_{n+1} = 1 + \frac{1}{x_n} \leq 1 + \frac 1 1 = 2 \ .
+\]
+Insbesondere ist die Folge beschränkt.
+
+Als nächstes zeigen wir, dass die Teilfolge $(x_{2n})$ monoton wachsend ist. Da 
+$x_2 = 1 + \frac{1}{x_1} = 1 + \frac{1}{2} = \frac{3}{2}$ ist $x_2 > x_0 = 1$.
+Nun sei nach Induktionsannahme $x_{2n} \geq x_{2(n-1)}$.
+\begin{align*}
+x_{2(n+1)} - x_{2n}
+	&= 1 + \frac{1}{x_{2n+1}} - \left( 1 + \frac{1}{x_{2n-1}} \right)
+	= \frac{1}{1 + \frac{1}{x_{2n}}} - \frac{1}{1 + \frac{1}{x_{2(n-1)}}}
+	= \frac{x_{2n}}{x_{2n}+1} - \frac{x_{2(n-1)}}{x_{2(n-1)} + 1} \\
+	&= \frac{ x_{2n} (x_{2(n-1)} + 1) - x_{2(n-1)} (x_{2n} + 1)}{(x_{2n}+1)(x_{2(n-1)}+1)}
+	= \frac{x_{2n} - x_{2(n-1)}}{(x_{2n}+1)(x_{2(n-1)}+1)} \geq 0
+\end{align*}
+Also ist $(x_{2n})$ eine konvergente Teilfolge von $(x_n)$.
+
+Wir weisen nun nach, dass $(x_n)$ eine Cauchyfolge ist. Sei dazu $n \geq 1$ beliebig.
+\begin{align*}
+| x_{n+1} - x_n | 
+	&= \left| 1 + \frac{1}{x_n} - \left( 1 + \frac{1}{x_{n-1}} \right) \right|
+	= \left| \frac{ x_{n-1} - x_n}{x_n \cdot x_{n-1}} \right|
+	\leq \frac 1 2 | x_{n-1} - x_n | \\
+	&\leq \ldots \leq \left( \frac 1 2 \right)^{n-1} \cdot |x_2 - x_1 |
+	= \left( \frac 1 2 \right)^n
+\end{align*}
+
+Für $m \geq n \geq 1$ erhalten wir
+\begin{align*}
+| x_m - x_n | 
+	&= | x_m - x_{m-1} + x_{m-1} - x_{m-2} \pm \ldots - x_n | \\
+	&\leq |x_m - x_{m-1} | + | x_{m-1} - x_{m-2} | + \ldots + |x_{n+1} - x_n| \\
+	&\leq \left( \frac 1 2 \right)^{m-1} + \left( \frac 1 2 \right)^{m-2} + \ldots
+	+ \left( \frac 1 2 \right)^n \\
+	&= \left( \frac 1 2 \right)^n \cdot \sum_{k=0}^{m-1} \left( \frac 1 2 \right)^k 
+	\leq \left( \frac 1 2 \right)^n \cdot 2
+	= \left( \frac 1 2 \right)^{n-1}
+\end{align*}
+
+Somit finden wir zu jedem $\epsilon > 0$ ein $N \in \mathbb N$ so, dass
+\[
+|x_m - x_n| < \epsilon, \quad \text{für } m \geq n \geq N \ ,
+\]
+und $(x_n)$ ist eine Cauchyfolge, die eine konvergente Teilfolge besitzt, also selbst
+konvergent.
+
+Sei $g \in \left[ 1.5, \ 2 \right]$ der Grenzwert von $(x_n)$.
+Mit den Grenzwertsätzen folgt nun
+\[
+g = \lim_{n \to \infty} x_n = \lim_{n \to \infty} x_{n+1}
+	= \lim_{n \to \infty} 1 + \frac{1}{x_n} = 1 + \frac 1 g
+\]
+Diese Gleichung hat die positive Lösung $g = \frac{{1} + \sqrt{5}}{2}$.
+\end{proof}
+\end{aufgabe}
+
 \section{Uneigentliche Konvergenz}
 \section{Vollständigkeit}
 \section{Reihen}
