@@ -122,6 +122,64 @@ $\left( \frac 1 g \right)^n \to 0$ für $n \to \infty$ und damit
 $\lim F_n = g$.
 \end{proof}
 
+\begin{aufgabe}
+Es seien
+\[
+x_0 := 5 \ , \quad x_1 := 1 \ , \quad  x_{n+1} := \frac 3 2 x_{n} + \frac 1 3 x_{n-1} \ ,
+ \; n \in \mathbb N^\times \ .
+\]
+Man verifiziere, dass $(x_n)$ konvergiert und bestimme $\lim x_n$.
+\end{aufgabe}
+\begin{proof}
+Für $n \geq 1$ gilt:
+\begin{align*}
+| x_n - x_{n-1} | &= \left| \frac 2 3 x_{n-1} + \frac 1 3 x_{n-2} - x_{n-1} \right|
+	= \frac 1 3 | x_{n-1} - x_{n-2} | = \ldots 
+	= \left( \frac 1 3 \right)^{n-1} \underbrace{|x_1 - x_0 |}_{=4}
+\end{align*}
+Und für $m \geq n \geq 1$ folgt mit der Dreiecksungleichung:
+\begin{align*}
+|x_m - x_n| &= |x_m - x_{m-1} + x_{m-1} - x_{m-2} \pm \ldots + x_{n+1} - x_n| \\
+	&\leq | x_m - x_{m-1} | + | x_{m-1} - x_{m-2}| + \ldots + |x_{n+1} - x_n| \\
+	&= 4 \left( \frac 1 3 \right)^{m-1} + 4 \left( \frac 1 3 \right)^{m-2} + \ldots + 
+	4 \left( \frac 1 3 \right)^{n} \\
+	&= 4 \left( \frac 1 3 \right)^{n} \left[ 1 + \frac 1 3 + \ldots 
+	+ \left( \frac 1 3 \right)^{m-n-1} \right] \\
+	&\leq 4 \left( \frac 1 3 \right)^n \sum_{k=0}^\infty \left( \frac 1 3 \right)^k
+	= 4 \left( \frac 1 3 \right)^n \cdot \frac{1}{1- \frac 1 3}
+	= 4 \cdot \left( \frac 1 3 \right)^n \cdot \frac 3 2 
+	= 6 \left( \frac 1 3 \right)^n
+\end{align*}
+Also bildet $(x_n)$ eine Cauchyfolge und da $\mathbb R$ vollständig ist, konvergiert sie.
+
+Wir bestimmen nun ihren Grenzwert.
+Für $n \geq 1$ haben wir
+\begin{align*}
+x_n - x_{n-1} &= \frac 2 3 x_{n-1} + \frac 1 3 x_{n-2} - x_{n-1}
+	= - \frac 1 3 \left( x_{n-1} - x_{n-2}\right)
+	= \left( - \frac 1 3 \right)^2 \left( x_{n-2} - x_{n-3} \right) \\
+	&= \ldots = \left( - \frac 1 3 \right)^{n-1} \left( x_1 - x_0 \right)
+	= (-4) \cdot \left( - \frac 1 3 \right)^{n-1} \ .
+\end{align*}
+Daraus folgt
+\begin{align*}
+x_n &= x_{n-1} + (-4) \cdot \left( - \frac 1 3 \right)^{n-1} \\
+	&= x_{n-2} + (-4) \cdot \left( - \frac 1 3 \right)^{n-2} 
+	+ (-4) \cdot \left( - \frac 1 3 \right)^{n-1} \\
+	&= \ldots = x_0 + (-4) \cdot \sum_{k=0}^{n-1} \left( - \frac 1 3 \right)^k
+	= 5 - 4 \sum_{k=0}^{n-1} \left( - \frac 1 3 \right)^k \ .
+\end{align*}
+Der Grenzübergang $n \to \infty$ liefert nun
+\begin{align*}
+\lim_{n \to \infty} x_n
+	&= 5 - 4 \sum_{k=0}^\infty \left( - \frac 1 3 \right)^k
+	= 5 - 4 \cdot \frac{1}{1 - \left( - \frac 1 3  \right)}
+	= 5 - 4 \cdot \frac{1}{\frac 4 3}
+	= 5 - 4 \cdot \frac 3 4 = 2
+\end{align*}
+
+\end{proof}
+
 
 
 \section{Uneigentliche Konvergenz}
