@@ -4,6 +4,52 @@
 \section{Normierte Vektorräume}
 \section{Monotone Folgen}
 
+\setcounter{aufgabe}{3}
+\begin{aufgabe}
+Für $a \in (0, \infty)$ definiere man die reelle Folge $(x_n)$ rekursiv durch $x_0 \geq a$ und
+\[
+x_{n+1} := \frac 1 2 \left( x_n + \frac{a}{x_n} \right) \ , \; n \in \mathbb N
+\]
+Man beweise, dass $(x_n)$ monoton fallend gegen $\sqrt{a}$ konvergiert.
+\end{aufgabe}
+\begin{proof}
+Man weist einfach nach, dass $x_n > 0$ für $n \in \mathbb N$.
+Für $n \in \mathbb N$ gilt:
+\begin{align*}
+x_{n+1}^2 &= \left( \frac 1 2 \left( x_n + \frac{a}{x_n} \right) \right)^2
+	= \frac 1 4 \left( x_n^2 + 2a + \frac{a^2}{x_n^2} \right) \\
+	&= \frac 1 4 \left( x_n^2 - 2a  + \frac{a^2}{x_n^2} \right) + a 
+	= \frac 1 4 \left( x_n - \frac{a}{x_n} \right)^2 + a \geq a
+\end{align*}
+
+Wir weisen nach, dass $(x_n)$ monoton fallend ist:
+\[
+x_{n+1} - x_n = \frac 1 2 \left( x_n + \frac{a}{x_n} \right) - x_n
+	= \frac{a}{2x_n} - \frac 1 2 x_n = \frac{a - x_n^2}{2 x_n} \leq 0
+\]
+Also ist die Folge $(x_n)$ nach unten beschränkt, monoton fallend und konvergiert somit.
+
+Es bleibt noch zu zeigen, dass $\lim x_n = \sqrt{a}$.
+Aus 
+\[
+x_{n+1} - \sqrt{a}
+	= \frac 1 2 \left( x_n + \frac{a}{x_n} \right) - \sqrt{a}
+	= \frac 1 2 \left( x_n - \sqrt{a} + \frac{a}{x_n} - \sqrt{a} \right)
+	= \frac 1 2 \left( 1 - \frac{\sqrt{a}}{x_n} \right) \left( x_n - \sqrt{a} \right)
+\]
+folgt
+\begin{align*}
+| x_{n+1} - \sqrt{a} |
+	&= \frac 1 2 \underbrace{ \left| 1 - \frac{\sqrt{a}}{x_n} \right| }_{\leq 1}
+	\left| x_n - \sqrt{a} \right|
+	\leq \frac 1 2 | x_n - \sqrt{a} |
+	\leq \ldots \leq \left( \frac 1 2 \right)^{n+1} | x_0 - \sqrt{a} | \ ,
+\end{align*}
+woraus folgt, dass $x_n \to \sqrt{a}$ für $n \to \infty$.
+
+\end{proof}
+
+
 \setcounter{aufgabe}{6}
 \begin{aufgabe}
 \begin{enumerate}
