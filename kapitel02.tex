@@ -3,7 +3,46 @@
 \section{Das Rechnen mit Zahlenfolgen}
 \section{Normierte Vektorräume}
 \section{Monotone Folgen}
-\setcounter{aufgabe}{7}
+
+\setcounter{aufgabe}{6}
+\begin{aufgabe}
+\begin{enumerate}
+\item[(a)] Man beweise folgende Fehlerabschätzung für $n \in \mathbb N^\times$:
+\[
+0 < e - \sum_{k=0}^n \frac{1}{k!} < \frac{1}{n n!}
+\]
+\item[(b)] Man beweise, dass $e$ eine irrationale Zahl ist.
+\end{enumerate}
+\end{aufgabe}
+\begin{proof}
+\item[(a)] Da $e = \sum_{k=0}^\infty \frac{1}{k!}$ ist die erste Ungleichung klar.
+
+Sei $y_m := \sum_{k = n+1}^{n + m} \frac{1}{k!}$. Es gilt 
+$y_m \to e - \sum_{k=0}^n$ für $m \to \infty$.
+\begin{align*}
+y_m &= \sum_{k=n+1}^{n+m} \frac{1}{k!}
+	= \frac{1}{(n+1)!} \left[ 1 + \frac{1}{n+2} + \frac{1}{(n+2)(n+3)} + \ldots
+	+ \frac{1}{(n+2) \cdots (n+m)} \right] \\
+	&< \frac{1}{(n+1)!} \left[ 1 + \frac{1}{n+1} + \left( \frac{1}{n+1} \right)^2 + \ldots
+	+ \left( \frac{1}{n+1} \right)^{m-2} \right] \\
+	&< \frac{1}{(n+1)!} \sum_{k=0}^\infty \left( \frac{1}{n+1} \right)^k
+	= \frac{1}{(n+1)!} \frac{1}{1 - \frac{1}{n+1}} 
+	= \frac{1}{(n+1)!} \frac{n+1}{n} = \frac{1}{n n!}
+\end{align*}
+Also gilt auch die zweite Ungleichung.
+
+\item[(b)] Angenommen $e$ ist rational, dann gibt es $p, \ n \in \mathbb N^\times$
+mit $e = \frac p n$. Nach (a) gilt dann:
+\[
+0 < \frac p n - \sum_{k=0}^n \frac{1}{k!} < \frac{1}{n n!}
+\]
+Also ist
+\[
+0 < \underbrace{ n! p - n \sum_{k=0}^n \frac{n!}{k!} }_{\in \mathbb Z} < 1 \ .
+\]
+Das ist aber nicht möglich, da es keine ganze Zahl zwischen 0 und 1 gibt.
+\end{proof}
+
 \begin{aufgabe}
 Es sei $(x_n)$ rekursiv definiert durch
 \[
