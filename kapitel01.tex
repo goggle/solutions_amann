@@ -4,6 +4,43 @@
 \section{Abbildungen}
 \section{Relationen und Verknüpfungen}
 \section{Die natürlichen Zahlen}
+\setcounter{aufgabe}{1}
+\begin{aufgabe}
+Folgende Identitäten sind durch vollständige Induktion zu verifizieren:
+\begin{enumerate}
+	\item[(a)] $\displaystyle \sum_{k=0}^n k = \frac{n (n+1)}{2}  , \; n \in \mathbb N $
+	\item[(b)] $\displaystyle \sum_{k=0}^n k^2 = \frac{ n (n+1) (2n+1) }{6}, \; n \in \mathbb N$
+\end{enumerate}
+\end{aufgabe}
+\begin{proof}
+	\begin{enumerate}
+		\item[(a)] Für $n = 0$ ist die Behauptung klar. Nach Induktionsannahme gelte
+			\[
+				\sum_{k=0}^{n-1} k = \frac{(n-1) n}{2} \ .
+			\]
+			Also folgt
+			\[
+				\sum_{k=0}^n k = \sum_{k=0}^{n-1} k + n = \frac{(n-1) n}{2} + n
+					= \frac{n^2 - n + 2n}{2} = \frac{n^2 + n}{2} = \frac{n (n+1)}{2} \ .
+			\]
+		\item[(b)] Für $n = 0$ ist die Behauptung wieder klar.
+			Sei nach Induktionsannahme
+			\[
+				\sum_{k=0}^{n-1} k^2 = \frac{(n-1) n (2(n-1) + 1)}{6} = \frac{(n-1) n (2n-1)}{6}
+			\]
+			Also folgt
+			\begin{align*}
+				\sum_{k=0}^n k^2 &= \sum_{k=0}^{n-1} + n^2
+					= \frac{(n-1) n (2n-1)}{6} + \frac{6n^2}{6}
+					= \frac{(n^2-n) (2n-1) + 6n^2}{6} \\
+					&= \frac{2n^3 - n^2 - 2n^2 + n + 6n^2}{6}
+					= \frac{2n^3 + 3n^2 + n}{6}
+					= \frac{ n(2n^2 + 3n + 1)}{6} \\
+					&= \frac{n (n+1) (2n+1)}{6} \ .
+			\end{align*}
+	\end{enumerate}
+\end{proof}
+
 \section{Abzählbarkeit}
 \section{Gruppen und Homomorphismen}
 \section{Ringe, Körper und Polynome}
