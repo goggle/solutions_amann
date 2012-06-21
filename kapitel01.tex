@@ -41,6 +41,85 @@ Folgende Identitäten sind durch vollständige Induktion zu verifizieren:
 	\end{enumerate}
 \end{proof}
 
+\setcounter{aufgabe}{4}
+\begin{aufgabe}
+	\begin{enumerate}
+		\item[(a)] Man verifiziere, dass für $n, m \in \mathbb N$ mit $m \leq n$ gilt:
+			\[
+				\left[ m! (n-m)! \right] \mid n!
+			\]
+		\item[(b)] Für $m, n \in \mathbb N$ werden die Binomialkoeffizienten $\binom n m \in \mathbb N$
+			definiert durch
+			\[
+				\binom n m := \begin{cases} \frac{n!}{m! (n-m)!} \ , & n \leq m \\ 0 \ , & m > n \end{cases}
+			\]
+			Man beweise folgende Rechenregeln:
+			\begin{enumerate}
+				\item[(i)] $ \binom n m = \binom{n}{n-m} $
+				\item[(ii)] $\binom{n}{m-1} + \binom{n}{m} = \binom{n+1}{m}, \; 1 \leq m \leq n$
+				\item[(iii)] $\sum_{k=0}^n \binom n k = 2^n$
+				\item[(iv)] $\sum_{k=0}^m \binom{n+k}{n} = \binom{n+m+1}{n+1} $
+			\end{enumerate}
+	\end{enumerate}
+\end{aufgabe}
+\begin{proof}
+	\begin{enumerate}
+		\item[(a)] Seien $n, m \in \mathbb N$, $m \leq n$.
+			\[
+				\frac{n!}{m! (n-m)!} = \frac{ n (n-1) \cdots (n-m+1)}{m!}
+			\]
+			Im Zähler haben wir $m$ Faktoren.
+			% TODO: Argument funktioniert glaub nicht.
+			Also gibt es einen Faktor $(n - i_1)$, so dass $m \mid (n-i_1)$.
+			Setzen wir dieses Verfahren fort, so finden wir
+			$m! \mid n (n-1) \cdots (n-m+1)$, also $m! (n-m)! \mid n!$.
+		\item[(b)]
+			\begin{enumerate}
+				\item[(i)]
+					\[
+						\binom{n}{n-m} = \frac{n!}{(n-m)! \left( n - (n-m) \right)!}
+							= \frac{n!}{(n-m)! m!} = \binom n m
+					\]
+				\item[(ii)]
+					\begin{align*}
+						\binom{n}{m-1} + \binom n m 
+							&= \frac{n!}{(m-1)! (n-m+1)!} + \frac{n!}{m! (n-m)!} \\
+							&= \frac{n! \cdot m}{m! (n-m+1)!} + \frac{n! \cdot (n-m+1)}{m! (n-m+1)!} \\
+							&= \frac{n! (n+1)}{m! (n-m+1)!}
+							= \frac{(n+1)!}{m! ( n+1-m)!}
+							= \binom{n+1}{m}
+					\end{align*}
+				\item[(iii)]
+					Wir beweisen die Behauptung mit vollständiger Induktion über $n$. Für $n=0$
+					haben wir
+					\[
+						\binom 0 0 = \frac{0!}{0! \cdot 0!} = 1 = 2^0
+					\]
+					Nehmen wir an, es gelte $\sum_{k = 0}^{n-1} \binom{n-1}{k} = 2^{n-1}$, dann folgt mit 
+					(ii):
+					\begin{align*}
+						\sum_{k=0}^n \binom n k 
+							&= 1 + \sum_{k=1}^n \left[ \binom{n-1}{k-1} + \binom{n-1}{k} \right]
+							= 1 + \sum_{k=0}^{n-1} \binom{n-1}{k} + \sum_{k=1}^n \binom{n-1}{k} \\
+							&= 1 + 2^{n-1} + \sum_{k=1}^{n-1} \binom{n-1}{k}
+							= 2^{n-1} + \sum_{k=0}^{n-1} \binom{n-1}{k}
+							= 2^{n-1} + 2^{n-1} = 2^n
+					\end{align*}
+				\item[(iv)]
+					Wiederum verwenden wir Induktion über $n$. Für $n=0$ haben wir 
+					$\binom 0 0 = 1 = \binom{n+1}{n+1}$. Sei nach Induktionsannahme
+					$\sum_{k=0}^{m-1} \binom{n+k}{n} = \binom{n+m}{n+1}$.
+					Dann folgt
+					\[
+						\sum_{k=0}^m \binom{n+k}{n}
+							= \sum_{k=0}^{m-1} \binom{n+k}{n} + \binom{n+m}{n}
+							= \binom{n+m}{n+1} + \binom{n+m}{n}
+							= \binom{n+m+}{n+1} \ .
+					\]
+			\end{enumerate}
+	\end{enumerate}
+\end{proof}
+
 \section{Abzählbarkeit}
 \section{Gruppen und Homomorphismen}
 \section{Ringe, Körper und Polynome}
