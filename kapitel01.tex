@@ -123,6 +123,52 @@ Folgende Identitäten sind durch vollständige Induktion zu verifizieren:
 \section{Abzählbarkeit}
 \section{Gruppen und Homomorphismen}
 \section{Ringe, Körper und Polynome}
+\begin{aufgabe}
+	Es seien $a$ und $b$ kommutierende Elemente eines Ringes mit Eins und $n \in \mathbb N$.
+	Man beweise:
+	\begin{enumerate}
+		\item[(a)] $\displaystyle a^{n+1} - b^{n+1} = (a-b) \sum_{j=0}^n a^j b^{n-j} $
+		\item[(b)] $\displaystyle a^{n+1} - 1 = (a-1) \sum_{j=0}^n a^j$ 
+	\end{enumerate}
+\end{aufgabe}
+\begin{proof}
+	\begin{enumerate}
+		\item[(a)]
+			\begin{align*}
+				(a-b) \sum_{j=0}^n a^j b^{n-1}
+				&= \sum_{j=0}^n a^{j+1} b^{n-j} - \sum_{j=0}^n a^j b^{n+1-j} \\
+				&= a^{n+1} + \sum_{j=0}^{n-1} a^{j+1} b^{n-j} - \sum_{j=1}^n a^j b^{n+1-j} - b^{n+1} \\
+				&= a^{n+1} + \left( \sum_{j=0}^{n-1} a^{j+1} b^{n-j} - \sum_{j=0}^{n-1} a^{j+1} b^{n-j}
+					\right) - b^{n+1} \\
+				&= a^{n+1} - b^{n+1}
+			\end{align*}
+		\item[(b)]
+			Setze $b=1$ in (a).
+	\end{enumerate}
+\end{proof}
+
+\setcounter{aufgabe}{2}
+\begin{aufgabe} Sei $K$ ein Körper. Dann ist $K[X]$ nullteilerfrei. \end{aufgabe}
+\begin{proof}
+	Angenommen, es existieren $0 \neq p = \sum_{k=0}^n p_k X^k \in K[X]$ und
+	$0 \neq q = \sum_{k=0}^m q_k X^k \in K[X]$ mit $p q = 0$, d.h.
+	\[
+		p q = \left( \sum_{k=0}^n p_k X^k \right) \left( \sum_{k=0}^m q_k X^k \right)
+		= \sum_{k=0}^{n+m} \underbrace{ \left( \sum_{\ell = 0}^k p_\ell q_{k-\ell} \right)}_{(pq)_k} X^k
+			= 0
+	\]
+	Seien $i$ und $j$ die kleinsten Indizes mit $p_i \neq 0$ und $q_j \neq 0$. Dann ist aber
+	\begin{align*}
+		(pq)_{i+j} &= \sum_{\ell = 0}^{i+j} p_{\ell} q_{(i+j)-\ell} \\
+		&= \underbrace{ p_0 }_{=0} q_{i+j} + \ldots
+		+ \underbrace{p_{i-1}}_{=0} q_{j+1} 
+		+ \underbrace{p_i q_j}_{\neq 0}
+		+ p_{i+1} \underbrace{q_{j-1}}_{=0} + \ldots
+		+ p_n \underbrace{ q_{j-1} }_{=0} \neq 0
+	\end{align*}
+	ein Widerspruch.
+\end{proof}
+
 \section{Die rationionalen Zahlen}
 \section{Die reellen Zahlen}
 \section{Die komplexen Zahlen}
