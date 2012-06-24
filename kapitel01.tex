@@ -164,12 +164,106 @@ Folgende Identitäten sind durch vollständige Induktion zu verifizieren:
 		+ \underbrace{p_{i-1}}_{=0} q_{j+1} 
 		+ \underbrace{p_i q_j}_{\neq 0}
 		+ p_{i+1} \underbrace{q_{j-1}}_{=0} + \ldots
-		+ p_n \underbrace{ q_{j-1} }_{=0} \neq 0
+		+ p_n \underbrace{ q_{0} }_{=0} \neq 0
 	\end{align*}
 	ein Widerspruch.
 \end{proof}
 
-\section{Die rationionalen Zahlen}
+\section{Die rationalen Zahlen}
 \section{Die reellen Zahlen}
+\setcounter{aufgabe}{5}
+\begin{aufgabe}
+	Man beweise die \textit{Bernoullische Ungleichung}: Für $x \in \mathbb R$
+	und $n \in \mathbb N$ gilt
+	\[
+		(1 + x)^n \geq 1 + nx \ .
+	\]
+\end{aufgabe}
+\begin{proof}
+	Wir verwenden vollständige Induktion. Für $n = 0$ ist
+	$(1 + x)^0 = 1 \geq 1 = 1 + 0 \cdot x$.
+
+	Sei nach Induktionsannahme $(1 + x)^{n-1} \geq 1 + (n-1) x$.
+	Dann folgt:
+	\begin{align*}
+		(1 + x)^{n-1}
+			&= (1 + x) (1 + x)^{n-1}
+			\geq (1 + x) \left( 1 + (n-1)x \right) \\
+			&= 1 + \underbrace{ (n-1) x + x}_{=nx} + \underbrace{ (n-1) x^2}_{ \geq 0}
+			\geq 1 + nx
+	\end{align*}
+\end{proof}
+
+\setcounter{aufgabe}{9}
+\begin{aufgabe}
+	Es seien $n \in \mathbb N^\times$ und $x = (x_1, \ldots, x_n) \in \left[ \mathbb R^+ \right]^n$.
+	Dann heisst $g(x) := \sqrt[n]{\prod_{j=1}^n x_j}$ bzw. $a(x) := \frac 1 n \sum_{j=1}^n x_j$
+	\textbf{geometrisches} bzw. \textbf{arithmetisches Mittel} der $x_1, \ldots, x_n$. Zu beweisen
+	ist die \textit{Ungleichung zwischen dem geometrischen und arithmetischen Mittel}, d.h.
+	$g(x) \leq a(x)$.
+\end{aufgabe}
+\begin{proof}
+Wir beweisen die Ungleichung per vollständige Induktion über $n$. Für $n = 1$ gilt
+$g(x) = x_1 \leq \frac 1 1 x_1 = a(x)$.
+
+Sei die Behauptung wahr für ein $n \in \mathbb N$. Wir können $x_i > 0$ annehmen für
+$i = 1, \ldots n+1$, da sonst die Behauptung trivial ist. Seien also $x_1, \ldots, x_{n+1} 
+\in \mathbb R_{>0}$ und ohne Einschränkung sei $x_{n+1} \geq x_i$ für $i = 1, \ldots, n$.
+Dann ist
+\[
+	a(x_1, \ldots, x_n) = \frac{x_1, \ldots, x_n}{n}
+		\leq \frac{n x_{n+1}}{n}
+		= x_{n+1} \ .
+\]
+Also ist
+\[
+	y := \frac{ x_{n+1} - a(x_1, \ldots, x_n) }{(n+1) a(x_1, \ldots, x_n)} \geq 0
+\]
+und wegen
+\begin{align*}
+	1 + y
+		&= \frac{ (n+1) a(x_1, \ldots, x_n) + x_{n+1} - a(x_1, \ldots, x_n)}{(n+1) a(x_1, \ldots, x_n)}
+		= \frac{n a(x_1, \ldots, x_n) + x_{n+1}}{(n+1) a(x_1, \ldots, x_n)} \\
+		&= \frac{n}{n+1} + \frac{x_{n+1}}{(n+1) a(x_1, \ldots, x_n)}
+\end{align*}
+folgt aus der Bernoulli-Ungleichung
+\begin{align*}
+	\left( \frac{x_1 + \ldots + x_{n+1}}{ (n+1) a(x_1, \ldots, x_n)} \right)^{n+1}
+	&= (1 + y)^{n+1} \geq 1 + (n+1) y = \frac{x_{n+1}}{a(x_1, \ldots, x_n)} \ .
+\end{align*}
+Nun folgt mit der Induktionsannahme die Behauptung:
+\begin{align*}
+	%\frac{x_1 + \ldots + x_{n+1}}{n+1} 
+	\frac{1}{n+1} \sum_{j=1}^{n+1} x_j
+	&\geq a(x_1, \ldots, x_n)^{n+1} \frac{x_{n+1}}{a(x_1, \ldots, x_n)}
+	= a(x_1, \ldots, x_n)^n x_{n+1} \\
+	&\geq g(x_1, \ldots, x_n)^n x_{n+1} = \prod_{j=1}^{n+1} x_j
+\end{align*}
+\end{proof}
+
+\begin{aufgabe}
+	Für $x = (x_1, \ldots, x_n)$ und $y = (y_1, \ldots, y_n) \in \mathbb R^n$ sei 
+	$x \centerdot y := \sum_{j=1}^n x_j y_j$. Man beweise folgende Ungleichung
+	zwischen dem \textbf{gewichteten} \textit{geometrischen} und dem \textbf{gewichteten}
+	\textit{arithmetischen Mittel}:
+	\[
+		\sqrt[|\alpha|]{x^\alpha} \leq \frac{x \centerdot \alpha}{|\alpha|}, 
+		\qquad x \in \left[ \mathbb R^+ \right]^n, \; \alpha \in \mathbb N^n \ .
+	\]
+\end{aufgabe}
+\begin{proof}
+Sei $\alpha := ( \alpha_1, \dots, \alpha_n) \in \mathbb N^n$, 
+$m := | \alpha | = \alpha_1 + \dots + \alpha_n$
+und $x = (x_1, \dots, x_n) \in \left[ \mathbb R^+ \right]$. Es folgt
+mit der Ungleichung zwischen dem geometrischen und arithmetischen Mittel:
+\[
+	\sqrt[|\alpha|]{x^\alpha}
+	= \sqrt[m]{x_1^{\alpha_1} \cdots x_n^{\alpha_n}}
+	\leq \frac 1 m \sum_{j=1}^n \alpha_j x_j
+	= \frac{x \centerdot \alpha}{|\alpha|}
+\]
+
+\end{proof}
+
 \section{Die komplexen Zahlen}
 \section{Vektorräume, affine Räume und Algebren}
