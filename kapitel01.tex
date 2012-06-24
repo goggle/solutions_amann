@@ -262,7 +262,55 @@ mit der Ungleichung zwischen dem geometrischen und arithmetischen Mittel:
 	\leq \frac 1 m \sum_{j=1}^n \alpha_j x_j
 	= \frac{x \centerdot \alpha}{|\alpha|}
 \]
+\end{proof}
 
+\setcounter{aufgabe}{15}
+\begin{aufgabe}
+	Für jedes $n \in \mathbb N$ sei $I_n$ ein nichtleeres abgeschlossenes Intervall in 
+	$\mathbb R$. Die Familie $\{ I_n \ ; \ n \in \mathbb N\}$ heisse
+	\textbf{Intervallschachtelung}, falls folgende Eigenschaften erfüllt sind:
+	\begin{enumerate}
+		\item[(a)] $I_{n+1} \subset I_n$ für $n \in \mathbb N$.
+		\item[(b)] Zu jedem $\epsilon > 0$ gibt es ein $n \in \mathbb N$ mit $|I_n| < \epsilon$.
+	\end{enumerate}
+	Man beweise:
+
+	\begin{enumerate}
+		\item[(i)] Zu jeder Intervallschachtelung $\{ I_n \ ; \ n \in \mathbb N \}$ gibt es genau
+			ein $x \in \mathbb R$ mit $x \in \bigcap_n I_n$.
+		\item[(ii)] Zu jedem $x \in \mathbb R$ gibt es eine Intervallschachtelung
+			$\{I_n \ ; \ n \in \mathbb N\}$ mit rationalen Endpunkten und
+			$\{x\} = \bigcap_n I_n$.
+	\end{enumerate}
+\end{aufgabe}
+\begin{proof}
+	\begin{enumerate}
+	\item[(i)]
+	Da die $I_n \neq \emptyset$ für alle $n \in \mathbb N$ und 
+	$I_1 \supset I_2 \supset I_3 \supset \dots$ ist $\bigcap_n I_n \neq \emptyset$.
+
+	Angenommen es gäbe zwei verschiedene Punkte $x, y \in \mathbb R$ mit 
+	$x, y \in \bigcap_n I_n$. Sei $\epsilon := \frac{|x-y|}{2}$. Nach (b) gibt es
+	ein $N \in \mathbb N$ mit 
+	\[
+		| I_N | < \epsilon = \frac{|x-y|}{2} \ .
+	\]
+	Da $x, y \in I_N$ gilt daher
+	\[
+		| x - y | \leq | I_N | < \frac{|x-y|}{2} \ ,
+	\]
+	ein Widerspruch.
+	\item[(ii)] Es ist klar, dass es eine Intervallschachtelung gibt mit mit 
+		$\{ x \} = \bigcap_n I_n$, man nehme z.B. $I_n := \left[ x-\frac 1 n, \ x + \frac 1 n \right]$.
+		Wir müssen zeigen, dass wir diese so wählen können, dass alle Endpunkte der Intervalle
+		$I_n$ rational sind. Sei $\{ I_n = [ a_n, b_n ] \ ; \ n \in \mathbb N \}$
+		eine Intervallschachtelung mit $\{ x\} = \bigcap_n I_n$.
+		Nach Satz 10.8 gibt es zu jedem $n \in \mathbb N$ ein $\tilde a_n \in \mathbb Q$ und ein 
+		$\tilde b_n \in \mathbb Q$ mit $a_n < \tilde a_n < x$ und $x < \tilde b_n < b_n$.
+		Nun haben wir mit $\tilde I_n := \{ [ \tilde a_n, \tilde b_n ] \ ; \ n \in \mathbb N\}$
+		eine Intervallschachtelung mit rationalen Endpunkten gefunden, 
+		welche $\{ x \} = \bigcap_n \tilde I_n$ erfüllt.
+	\end{enumerate}
 \end{proof}
 
 \section{Die komplexen Zahlen}
