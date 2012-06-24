@@ -314,4 +314,23 @@ mit der Ungleichung zwischen dem geometrischen und arithmetischen Mittel:
 \end{proof}
 
 \section{Die komplexen Zahlen}
+\setcounter{aufgabe}{10}
+\begin{aufgabe}
+	Man beweise die \textbf{Parallelogrammidentität} in $\mathbb C$:
+	\[
+		|z + w|^2 + |z - w|^2 = 2( |z|^2 + |w|^2), \quad z, w \in \mathbb C
+	\]
+\end{aufgabe}
+\begin{proof}
+	Seien $z, w \in \mathbb C$.
+	\begin{align*}
+		|z + w|^2 + |z - w|^2
+			&= (z+w) \overline{(z + w)} + (z-w) \overline{ (z-w) } \\
+			&= (z + w) (\bar z + \bar w) + (z - w) (\bar z - \bar w) \\
+			&= z \bar z + z \bar w + w \bar z + w \bar w + z \bar z - z \bar w - w \bar z + w \bar w \\
+			&= 2 z \bar z + 2 w \bar w \\
+			&= 2 \left( |z|^2 + |w|^2 \right)
+	\end{align*}
+\end{proof}
+
 \section{Vektorräume, affine Räume und Algebren}
