@@ -214,8 +214,24 @@ Folgende Identitäten sind durch vollständige Induktion zu verifizieren:
 					\geq \left| \frac{2ab}{ab} \right| = 2 \ .
 			\]
 	\end{enumerate}
-
 \end{proof}
+
+\setcounter{aufgabe}{11}
+\begin{aufgabe}
+	Sei $R$ ein angeordneter Ring und für $a, b \in R$ gelten $a \geq 0$ und $b \geq 0$.
+	Es gebe ein $n \in \mathbb N^\times$ mit $a^n = b^n$. Dann ist $a=b$.
+\end{aufgabe}
+\begin{proof}
+	Falls $a=0$, dann ist $0 = a^n = b^n$ und da ein angeordneter Ring immer unendlich viele
+	Elemente hat, folgt $b = 0$. Genauso folgt wenn $b=0$, dass $a=0$ gelten muss.
+
+	Seien $a, b >0$ vorausgesetzt. Dann folgt aus
+	\[
+		0 = a^n -b^n = (a-b) \underbrace{ \sum_{j=0}^{n-1} a^j b^{n-j} }_{>0} \ ,
+	\]
+	dass $a-b=0$ gelten muss, also $a=b$.
+\end{proof}
+
 
 \section{Die rationalen Zahlen}
 \section{Die reellen Zahlen}
