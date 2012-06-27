@@ -169,6 +169,54 @@ Folgende Identitäten sind durch vollständige Induktion zu verifizieren:
 	ein Widerspruch.
 \end{proof}
 
+\setcounter{aufgabe}{9}
+\begin{aufgabe}
+	Es seien $K$ ein angeordneter Körper und $a, b, c, d \in K$.
+	\begin{enumerate}
+		\item[(a)] Man beweise die Ungleichung
+			\[
+				\frac{| a + b|}{1 + |a+b|} \leq \frac{|a|}{1+|a|} + \frac{|b|}{1+|b|} \ .
+			\]
+		\item[(b)] Gelten $b > 0$, $d > 0$ und $\frac a b < \frac c d$, so folgt
+			\[
+				\frac a b < \frac{a + c}{b + d} < \frac c d
+			\]
+		\item[(c)] Für $a, b \in K^\times$ gilt
+			\[
+				\left| \frac a b + \frac b a \right| \geq 2
+			\]
+	\end{enumerate}
+\end{aufgabe}
+\begin{proof}
+	\begin{enumerate}
+		\item[(a)] Todo. % TODO
+		\item[(b)] 
+			\begin{itemize}
+				\item Wegen $b, d > 0$ ist die erste Ungleichung äquivalent zu 
+					\[
+						a(b+d) = ab + ad < ab + bc = b(a+c) \ .
+					\]
+					Nach Abziehen von $ab$ haben wir $ad < bc$. Das ist wiederum äquivalent
+					zur Voraussetzung $\frac a b < \frac c d$.
+				\item Auch hier ist die Ungleichung äquivalent zu 
+					\[
+						d(a+c) = ad + cd < bc + cd = c ( b+d) .
+					\]
+					Abziehen von $cd$ führt wiederum auf $ad < bc$.
+			\end{itemize}
+		\item[(c)] Wegen $(a-b)^2 = a^2 + b^2 - 2ab$ ist
+			\[
+				a^2 + b^2 = \underbrace{ (a-b)^2 }_{\geq 0} + 2ab \geq 2ab \ .
+			\]
+			Also folgt
+			\[
+				\left| \frac a b + \frac b a \right| = \left| \frac{a^2 + b^2}{ab} \right|
+					\geq \left| \frac{2ab}{ab} \right| = 2 \ .
+			\]
+	\end{enumerate}
+
+\end{proof}
+
 \section{Die rationalen Zahlen}
 \section{Die reellen Zahlen}
 \setcounter{aufgabe}{5}
@@ -314,6 +362,40 @@ mit der Ungleichung zwischen dem geometrischen und arithmetischen Mittel:
 \end{proof}
 
 \section{Die komplexen Zahlen}
+
+\setcounter{aufgabe}{7}
+\begin{aufgabe}
+	Man zeige, dass es ausser der Identität und $z \mapsto \bar z$ keinen Körperautomorphismus von
+	$\mathbb C$ gibt, der die Elemente von $\mathbb R$ festlässt.
+\end{aufgabe}
+\begin{proof}
+	Man prüft leicht nach, dass die Konjugationsabbildung $\sigma: \mathbb C \to \mathbb C$, 
+	$z \mapsto \bar z$ ein Körperautomorphismus ist, der die Elemente von $\mathbb R$ festlässt.
+
+	Sei $\varphi: \mathbb C \to \mathbb C$ ein beliebiger Körperautomorphismus, der die Elemente
+	von $\mathbb R$ festlässt. Dann gilt:
+	\[
+		\varphi(i) \cdot \varphi(i)
+			= \varphi(i^2) = \varphi(-1) = -1 \cdot \varphi(1) = -1
+	\]
+	Also ist $\varphi(i) = i$ oder $\varphi(i) = -i$.
+	Im ersten Fall haben wir
+	\[
+		\varphi(x + iy) = \varphi(x) + \varphi(iy) = x \varphi(1) + y \varphi(i)
+			= x + iy \ ,
+	\]
+	also ist $\varphi$ die Identität.
+
+	Im zweiten Fall haben wir
+	\[
+		\varphi(x + iy) = \varphi(x) + \varphi(iy) = x \varphi(1) + y \varphi(i)
+			= x - iy \ ,
+	\]
+	also ist $\varphi$ die Konjugationsabbildung.
+
+
+\end{proof}
+
 \setcounter{aufgabe}{10}
 \begin{aufgabe}
 	Man beweise die \textbf{Parallelogrammidentität} in $\mathbb C$:
