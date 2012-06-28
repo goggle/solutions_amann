@@ -2,6 +2,62 @@
 \section{Konvergenz von Folgen}
 \section{Das Rechnen mit Zahlenfolgen}
 \section{Normierte Vektorräume}
+\setcounter{aufgabe}{3}
+\begin{aufgabe}
+	Man beweise, dass in jedem Innenproduktraum $(E, (\cdot | \cdot))$ folgende
+	\textbf{Parallelogrammidentität} gilt:
+	\[
+		2 ( \Vert x \Vert^2 + \Vert y \Vert^2)
+			= \Vert x + y \Vert^2 + \Vert x - y \Vert^2, \quad x, y \in E
+	\]
+\end{aufgabe}
+\begin{proof}
+	\begin{align*}
+		\Vert x + y \Vert^2 + \Vert x - y \Vert^2
+			&= (x+y | x+y) + (x-y | x-y) \\
+			&= (x | x+y) + (y |x+y) + (x | x-y) - (y | x-y) \\
+			&= (x|x) + (x|y) + (y|x) + (y|y) + (x|x) - (x|y) - (y|x) + (y|y) \\
+			&= 2 (x|x) + 2(y|y) \\
+			&= 2 ( \Vert x \Vert^2 + \Vert y \Vert^2 )
+	\end{align*}
+\end{proof}
+
+\setcounter{aufgabe}{5}
+\begin{aufgabe}
+	Es sei $(E, (\cdot | \cdot))$ ein reeller Innenproduktraum. Man beweise die Ungleichung
+	\[
+		(\Vert x \Vert + \Vert y \Vert) \frac{(x|y)}{\Vert x \Vert \Vert y \Vert}
+			\leq \Vert x + y \Vert
+			\leq \Vert x \Vert + \Vert y \Vert \ , \quad x,y \in E\setminus\{0\}
+	\]
+	Wann gilt Gleichheit?
+\end{aufgabe}
+\begin{proof}
+	Die 2. Ungleichung ist gerade die Dreiecksungleichung. Hier ist also nichts zu beweisen.
+	Die 1. Ungleichung ist trivial, falls $(x | y) \leq 0$, also können wir $(x | y) \geq 0$
+	annehmen.
+	Nach dem Quadrieren der 1. Ungleichung erhalten wir
+	\[
+		\left( \Vert x \Vert + \Vert y \Vert \right)^2 \frac{ (x|y)^2 }{\Vert x \Vert^2 \Vert y \Vert^2}
+			\leq \Vert x + y \Vert^2 \ ,
+	\]
+	was zu zeigen ist. Nach der Cauchy-Schwarz-Ungleichung ist
+	$\frac{ (x | y)^2}{ \Vert x \Vert^2 \Vert y \Vert^2} \leq 1$ und es
+	folgt:
+	\begin{align*}
+		\left( \Vert x \Vert + \Vert y \Vert \right)^2 \frac{ (x|y)^2 }{\Vert x \Vert^2 \Vert y \Vert^2}
+		 &= \left( \Vert x \Vert^2 + 2 \Vert x \Vert \Vert y \Vert + \Vert y \Vert^2 \right)
+		 \frac{ (x | y)^2 }{ \Vert x \Vert^2 \Vert y \Vert^2} \\
+		 &\leq \Vert x \Vert^2 + \Vert y \Vert^2 + 2 \frac{ (x | y) }{ \Vert x \Vert \Vert y \Vert}
+		 (x | y) \\
+		 &\leq \Vert x \Vert^2 + \Vert y \Vert^2 " 2 \frac{ \Vert x \Vert \Vert y \Vert}{ 
+			 	\Vert x \Vert \Vert y \Vert } (x | y) \\
+			&= \Vert x \Vert^2 + \Vert y \Vert^2 + 2 (x | y) \\
+			&= (x | x) + (y | y) + 2(x | y) \\
+			&= (x + y | x + y) = \Vert x + y \Vert^2
+	\end{align*}
+\end{proof}
+
 \section{Monotone Folgen}
 
 \setcounter{aufgabe}{3}
