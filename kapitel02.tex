@@ -98,6 +98,42 @@
 	\end{enumerate}
 \end{proof}
 
+\begin{aufgabe}
+	Es sei $F$ ein Untervektorraum eines Innenproduktraumes $E$. Man beweise, dass das 
+	\textbf{orthogonale Komplement} von $F$, d.h.
+	\[
+		F^\perp := \{ x \in E \ ; \ x \perp y, \ y \in F \} \ ,
+	\]
+	ein abgeschlossener Untervektorraum von $E$ ist.
+\end{aufgabe}
+\begin{proof}
+	Wir zeigen zuerst, dass $F^\perp$ ein Untervektorraum von $E$ ist.
+	\begin{itemize}
+		\item Da $(0 | y) = 0$ für jedes $y \in F$, ist $0 \in F^\perp$.
+		\item Seien $x_1, x_2 \in F^\perp$. Dann ist $(x_1 | y) = (x_2 | y) = 0$ für $y \in F$.
+			Also ist auch $(x_1 + x_2 | y) = (x_1 | y ) + (x_2 | y) = 0$ für $y \in F$ und somit
+			ist $x_1 + x_2 \in F^\perp$.
+		\item Seien $\lambda \in \mathbb K$ und $x \in F^\perp$, dann ist 
+			$(x | y) = 0$ für $y \in F$. Also ist auch $(\lambda x | y) = \lambda (x | y) = 0$
+			für $y \in F$ und somit ist $\lambda x \in F^\perp$.
+	\end{itemize}
+	Es bleibt zu zeigen, dass $F^\perp$ abgeschlossen ist. Sei $(x_n)$ eine Folge in $F^\perp$, 
+	die in $E$ konvergiert, d.h. $\lim x_n = x \in E$. 
+	Es gilt also $(x_n | y) = 0$ für jedes $n \in \mathbb N$ und $y \in F$.
+	Für $y \in F$ ist 
+	\[
+		(x | y) = (x - x_n | y ) + \underbrace{ (x_n | y)}_{=0} = (x - x_n | y) \ .
+	\]
+	Mit der Cauchy-Schwarz-Ungleichung folgt
+	\[
+		| (x | y) | = | (x-x_n | y) | \leq \Vert x - x_n \Vert \Vert y \Vert \ ,
+	\]
+	und da $\Vert x_n - x \Vert \to 0$ für $n \to \infty$ ist $(x|y)=0$ und somit
+	$x \in F^\perp$, d.h. $F^\perp$ ist abgeschlossen.
+\end{proof}
+
+
+
 \section{Monotone Folgen}
 
 \setcounter{aufgabe}{3}
@@ -157,6 +193,7 @@ woraus folgt, dass $x_n \to \sqrt{a}$ für $n \to \infty$.
 \end{enumerate}
 \end{aufgabe}
 \begin{proof}
+\begin{enumerate}
 \item[(a)] Da $e = \sum_{k=0}^\infty \frac{1}{k!}$ ist die erste Ungleichung klar.
 
 Sei $y_m := \sum_{k = n+1}^{n + m} \frac{1}{k!}$. Es gilt 
@@ -183,6 +220,7 @@ Also ist
 0 < \underbrace{ n! p - n \sum_{k=0}^n \frac{n!}{k!} }_{\in \mathbb Z} < 1 \ .
 \]
 Das ist aber nicht möglich, da es keine ganze Zahl zwischen 0 und 1 gibt.
+\end{enumerate}
 \end{proof}
 
 \begin{aufgabe}
