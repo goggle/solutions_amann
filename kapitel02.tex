@@ -50,12 +50,52 @@
 		 \frac{ (x | y)^2 }{ \Vert x \Vert^2 \Vert y \Vert^2} \\
 		 &\leq \Vert x \Vert^2 + \Vert y \Vert^2 + 2 \frac{ (x | y) }{ \Vert x \Vert \Vert y \Vert}
 		 (x | y) \\
-		 &\leq \Vert x \Vert^2 + \Vert y \Vert^2 " 2 \frac{ \Vert x \Vert \Vert y \Vert}{ 
+		 &\leq \Vert x \Vert^2 + \Vert y \Vert^2 + 2 \frac{ \Vert x \Vert \Vert y \Vert}{ 
 			 	\Vert x \Vert \Vert y \Vert } (x | y) \\
 			&= \Vert x \Vert^2 + \Vert y \Vert^2 + 2 (x | y) \\
 			&= (x | x) + (y | y) + 2(x | y) \\
 			&= (x + y | x + y) = \Vert x + y \Vert^2
 	\end{align*}
+\end{proof}
+
+\setcounter{aufgabe}{9}
+\begin{aufgabe}
+	Es sei $(E, (\cdot | \cdot))$ ein Innenproduktraum. Zwei Elemente $x, y \in E$ heissen
+	\textbf{orthogonal}, wenn $(x | y) = 0$ gilt, man schreibt $x \perp y$. Eine Teilmenge
+	$M \subset E$ heisst \textbf{Orthogonalsystem}, wenn $x \perp y$ für alle $x, y \in M$
+	mit $x \neq y$ gilt. $M$ heisst \textbf{Orthonormalsystem}, falls $M$ ein 
+	Orthogonalsystem ist mit $\Vert x \Vert = 1$ für $x \in M$.
+
+	Es sei $\{x_0, \ldots, x_m\} \subset E$ ein Orthogonalsystem mit $x_j \neq 0$
+	für $0 \leq j \leq m$. Man beweise:
+	\begin{enumerate}
+		\item[(a)] $\{x_0, \ldots, x_m\}$ ist linear unabhängig.
+		\item[(b)] $\Big \Vert \displaystyle \sum_{k=0}^m x_k \Big \Vert^2 = \sum_{k=0}^m \Vert x_k \Vert^2$ 
+			(Satz des Pythagoras)
+	\end{enumerate}
+\end{aufgabe}
+\begin{proof}
+	\begin{enumerate}
+		\item[(a)] Angenommen $\{x_0, \ldots, x_m\}$ ist linear abhängig. Dann gibt es ein 
+			$j \in \{0, \ldots, m\}$ so, dass $x_j = \displaystyle  \sum_{i=0 \atop i \neq j}^m \alpha_i x_i$ 
+			mit $\alpha_i \in \mathbb K$, also ist 
+			$x_j - \displaystyle \sum_{i=0 \atop i \neq j}^m \alpha_i x_i = 0$.
+			Es folgt
+			\begin{align*}
+				0 &= (0 | x_j) = \Big ( x_j - \sum_{i=0 \atop i \neq j}^m \alpha_i x_i \Big \vert x_j \Big) \\
+					&= ( x_j | x_j ) - \sum_{i=0 \atop i \neq j}^m \alpha_i \underbrace{ (x_i|x_j) }_{=0} 
+					= (x_j | x_j) \ ,
+			\end{align*}
+			was bedeutet, dass $x_j = 0$ sein muss. Das ist ein Widerspruch zur Voraussetzung.
+		\item[(b)] 
+			\begin{align*}
+				\Big \Vert \sum_{k=0}^m x_k \Big \Vert^2 
+					&= \Big ( \sum_{k=0}^m x_k \Big \vert \sum_{j=0}^m x_j \Big )
+					= \sum_{k=0}^m \Big( x_k \Big \vert \sum_{j=0}^m x_j \Big) \\
+					&= \sum_{k=0}^m \sum_{j=0}^m \underbrace{ (x_k | x_j ) }_{=0 \text{ für } k \neq j} 
+					= \sum_{k=0}^m (x_k | x_k) = \sum_{k=0}^m \Vert x_k \Vert^2
+			\end{align*}
+	\end{enumerate}
 \end{proof}
 
 \section{Monotone Folgen}
