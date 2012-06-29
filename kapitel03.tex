@@ -59,6 +59,29 @@
 	\end{enumerate}
 \end{proof}
 
+\begin{aufgabe}
+	Man zeige, dass jede lineare Abbildung von $\mathbb K^n$ nach $\mathbb K^m$
+	Lipschitz-stetig ist.
+\end{aufgabe}
+\begin{proof}
+	Sei $f: \mathbb K^n \to \mathbb K^m$ linear. Da $f$ linear ist, gibt es eine
+	Matrix $A = [a_{ij}] \in \mathbb K^{m \times n}$ so, dass $f(x) = A x$ für $x \in \mathbb K^n$.
+	Seien $x, y \in \mathbb K^n$. Mit Satz II.3.12 und der Dreiecksungleichung folgt:
+	\begin{align*}
+		\Vert f(x) - f(y) \Vert
+			&\leq \sqrt m \Vert f(x) - f(y) \Vert_\infty
+			= \sqrt m \Vert f(x-y) \Vert_\infty 
+			= \sqrt m \Vert A(x-y) \Vert_\infty \\
+			&= \sqrt m \max_{1 \leq i \leq m} \Big \vert \sum_{j=1}^n a_{ij} (x_j - y_j) \Big \vert \\
+			&\leq \sqrt m \max_{1 \leq i \leq m} \sum_{j=1}^n |a_{ij}| | x_j - y_j | \\
+			&\leq \sqrt m \max_{1 \leq i \leq m \atop 1 \leq j \leq n} | a_{ij}| \sum_{j=1}^n |x_j - y_j| \\
+			&\leq \sqrt m \max_{1 \leq i \leq m \atop 1 \leq j \leq n} |a_{ij}|\cdot  n \Vert x - y \Vert_\infty \\
+			&\leq \underbrace{n \sqrt m \max_{1 \leq i \leq m \atop 1 \leq j \leq n} |a_{ij}| }_{=: \alpha} \Vert x -y \Vert
+	\end{align*}
+	Dies beweist die Lipschitz-Stetigkeit von $f$.
+\end{proof}
+
+
 \section{Topologische Grundbegriffe}
 \section{Kompaktheit}
 \section{Zusammenhang}
