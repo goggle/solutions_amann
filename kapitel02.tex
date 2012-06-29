@@ -132,6 +132,32 @@
 	$x \in F^\perp$, d.h. $F^\perp$ ist abgeschlossen.
 \end{proof}
 
+\begin{aufgabe}
+	Es seien $B = \{ u_0, \ldots, u_m \}$ ein Orthonormalsystem im Innenproduktraum $(E, (\cdot | \cdot))$
+	und $F := \spann(B)$. Ferner sei 
+	\[
+		p_F: E \to F, \quad x \to \sum_{k=0}^m (x | u_k) u_k \ .
+	\]
+	Man beweise:
+	\begin{enumerate}
+		\item[(a)] $x - p_F(x) \in F^\perp, \ x \in E$
+	\end{enumerate}
+\end{aufgabe}
+\begin{proof}
+	\begin{enumerate}
+		\item[(a)] Sei $y \in F$, $x \in E$. Wegen $F = \spann(B)$ kann $y$ geschrieben werden
+			als $y = \sum_{i=0}^m \alpha_i u_i$ für geeignete $\alpha_i \in \mathbb K$. Es folgt:
+			\begin{align*}
+				( x - p_F(x) | y) 
+					&= \Big( x - \sum_{k=0}^m (x | u_k) u_k \Big \vert y \Big) \\
+					&= \sum_{i=0}^m \alpha_i (x | u_i)
+						- \sum_{k=0}^m (x | u_k) \Big( u_k \Big \vert \sum_{i=0}^m \alpha_i u_i \Big) \\
+					&= \sum_{i=0}^m \alpha_i (x | u_i) - \sum_{k=0}^m (x | u_k) \sum_{j=0}^m \alpha_j (u_k|u_j) \\
+					&= \sum_{i=0}^m \alpha_i (x | u_i) - \sum_{k=0}^m \alpha_k (x | u_k) = 0
+			\end{align*}
+	\end{enumerate}
+\end{proof}
+
 
 
 \section{Monotone Folgen}
@@ -453,4 +479,39 @@ Somit haben wir
 \underline a(z) = \underline b(z) + \underline c(z) = \frac{1}{1-z} + \frac{z}{(1-z)^2}
 	= \frac{1 -z + z}{(1-z)^2} = \frac{1}{(1-z)^2} .
 \]
+\end{proof}
+
+\setcounter{aufgabe}{9}
+\begin{aufgabe}
+	Es sei $b = \sum b_k X^k \in \mathbb C [\![ X ]\!]$ mit 
+	$(1-X-X^2)b = 1 \in \mathbb C [\![ X ]\!]$
+	\begin{enumerate}
+		\item[(a)] Man verifiziere, dass die Koeffizienten $b_k$ die Rekursionsvorschrift
+			\[
+				b_0 = 1, \quad b_1 = 1, \quad b_{k+1} = b_k + b_{k-1}, \quad k \in \mathbb N^\times \ ,
+			\]
+			erfüllen, d.h. $(b_k)$ ist die Folge der Fibonacci-Zahlen.
+		\item[(b)] Wie gross ist der Konvergenzradius von $b$?
+	\end{enumerate}
+\end{aufgabe}
+\begin{proof}
+	\begin{enumerate}
+		\item[(a)] Sei $a := 1 - X - X^2$ und $c := 1 \in \mathbb C [\![ X ]\!]$. Aus 
+			$1 = c_0 = a_0 b_0 = b_0$ folgt $b_0 = 1$ und aus 
+			$0 = c_1 = a_0 b_1 + a_1 b_0 = 1 b_1 + (-1) b_0 = b_1 - 1$ folgt $b_1 = 1$.
+			Schliesslich zeigt die Rechnung
+			\begin{align*}
+				0 &= c_{k+1} = a_0 b_{k+1} + a_1 b_k + a_2 b_{k-1} + \underbrace{a_3 b_{k-2}}_{=0} + 
+				\ldots + \underbrace{ a_{k+1} b_0 }_{=0} \\
+					&= b_{k+1} - b_k - b_{k-1} \ ,
+			\end{align*}
+			dass $b_{k+1} = b_k + b_{k-1}$ für $n \in \mathbb N^\times$ gelten muss.
+		\item[(b)] Die Folge $(b_n)$ ist genau die Folge der Fibonacci-Zahlen. Nach Aufgabe
+			4.9 gilt $\lim_{n \to \infty} \frac{b_{n+1}}{b_n} = g$, wobei $g$ der goldene Schnitt
+			bezeichnet. Also folgt mit Satz $9.4$:
+			\[
+				\rho_b = \lim_{k\to \infty} \left| \frac{b_k}{b_{k+1}} \right|
+					= \frac{1}{\displaystyle \lim_{k\to \infty} \left| \frac{b_{k+1}}{b_k}\right|} = \frac 1 g
+			\]
+	\end{enumerate}
 \end{proof}
