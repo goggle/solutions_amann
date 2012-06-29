@@ -1,8 +1,66 @@
 \chapter{Stetige Funktionen}
 \section{Stetigkeit}
+\setcounter{aufgabe}{10}
+\begin{aufgabe}
+	Man betrachte die Abbildung
+	\[
+		f: \mathbb R^2 \to \mathbb R, \quad
+			(x, y) \mapsto 
+			\begin{cases}
+				\frac{xy}{x^2 + y^2}, & (x,y) \neq (0,0) \\
+				0, & (x,y) = (0,0)
+			\end{cases}
+	\]
+	und setze für ein festes $x_0 \in \mathbb R$:
+	\[
+		f_1: \mathbb R \to \mathbb R, \quad x \mapsto f(x, x_0), \qquad 
+		f_2: \mathbb R \to \mathbb R, \quad x \mapsto f(x_0, x)
+	\]
+	Dann gelten:
+	\begin{enumerate}
+		\item[(a)] $f_1$ und $f_2$ sind stetig.
+		\item[(b)] $f$ ist stetig in $\mathbb R^2 \setminus \{(0,0)\}$ und unstetig in
+			$(0,0)$.
+	\end{enumerate}
+\end{aufgabe}
+\begin{proof}
+	\begin{enumerate}
+		\item[(a)] Aus Symmetriegründen reicht es die Stetigkeit von $f_1$ zu beweisen.
+			Nehmen wir zuerst $x_0 \neq 0$ an. Dann ist $f_1$ gegeben durch 
+			$f_1(x) = f(x, x_0) = \frac{x x_0}{x^2 + x_0^2}$. Da der Nenner nie $0$ ist, 
+			ist diese rationale Funktion auf ganz $\mathbb R$ stetig. Im Fall $x_0 = $ ist
+			$f_1(x) = \frac{0}{x^2} = 0$ für $x \neq 0$ und $f_1(0) = f(0,0) = 0$, also ist $f_1$
+			die Nullfunktion und damit ebenfalls stetig auf $\mathbb R$. Es folgt, dass 
+			$f_1$ für jedes feste $x_0 \in \mathbb R$ auf ganz $\mathbb R$ stetig ist.
+		\item[(b)] Sei $(z_n) = ( (x_n, y_n) )$ eine Folge in $\mathbb R^2$ mit 
+			$\displaystyle \lim_{n \to \infty} z_n = z = (x,y) \neq (0,0)$. Also gilt
+			$\displaystyle \lim_{n \to \infty} x_n = x$ und 
+			$\displaystyle \lim_{n \to \infty} y_n = y$, also auch
+			$\displaystyle \lim_{n \to \infty} x_n^2 = x^2$, 
+			$\displaystyle \lim_{n \to \infty} y_n^2 = y^2$, 
+			$\displaystyle \lim_{n \to \infty} x_n y_n = xy$ und
+			$\displaystyle \lim_{n \to \infty} x_n^2 + y_n^2 = x^2 + y^2$.
+			Damit folgt
+			\[
+				\lim_{n \to \infty} f(x_n, y_n) = \lim_{n \to \infty} \frac{ x_n y_n }{x_n^2 + y_n^2}
+					= \frac{xy}{x^2 + y^2} \ ,
+			\]
+			also ist $f$ stetig in $\mathbb R^2 \setminus \{ (0,0 \}$
+
+			Es sei nun $(z_n) = ( (x_n, x_n) )$ eine Folge in $\mathbb R^2$ mit
+			$\displaystyle \lim_{n \to \infty} z_n = (0,0)$.
+			Dann ist
+			\[
+				f( x_n, x_n ) = \frac{ x_n x_n }{x_n^2 + x_n^2} = \frac{x_n^2}{2 x_n^2} = \frac 1 2
+			\]
+			für jedes $n \in \mathbb N$.
+			Wir haben $(x_n, x_n) \to (0, 0)$ aber $f(x_n, x_n) \to \frac 1 2 \neq 0$ für 
+			$n \to \infty$ und somit ist $f$ in $(0,0)$ nicht stetig.
+	\end{enumerate}
+\end{proof}
+
 \section{Topologische Grundbegriffe}
 \section{Kompaktheit}
 \section{Zusammenhang}
 \section{Funktionen in $\mathbb R$}
 \section{Die Exponentialfunktion und Verwandte}
-
