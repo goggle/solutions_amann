@@ -81,6 +81,27 @@
 	Dies beweist die Lipschitz-Stetigkeit von $f$.
 \end{proof}
 
+\begin{aufgabe}
+	Es seien $(E, (\cdot | \cdot) )$ ein Innenproduktraum und $x_0 \in E$. Dann sind die Abbildungen
+	\[
+		f: E \to \mathbb K, \quad x \mapsto (x | x_0), \qquad
+		g: E \to \mathbb K, \quad x \mapsto (x_0 | x)
+	\]
+	stetig.
+\end{aufgabe}
+\begin{proof}
+	Sei $\tilde x \in E$, $\epsilon > 0$ und $\delta := \frac{\epsilon}{\Vert x_0 \Vert}$. Für
+	$x \in E$ mit $\Vert x - \tilde x \Vert < \delta$ folgt mit der Cauchy-Schwarz-Ungleichung
+	\begin{align*}
+		| f(x) - f(\tilde x) | 
+			&= | (x | x_0) - (\tilde x | x_0) |
+			= |(x-\tilde x | x_0) | \\
+			&\leq \Vert x - \tilde x \Vert \Vert x_0 \Vert < \delta \Vert x_0 \Vert = \epsilon \ ,
+	\end{align*}
+	also ist $f$ stetig.
+	Analog beweist man die Stetigkeit von $g$.
+\end{proof}
+
 
 \section{Topologische Grundbegriffe}
 \section{Kompaktheit}
