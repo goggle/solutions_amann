@@ -102,6 +102,64 @@
 	Analog beweist man die Stetigkeit von $g$.
 \end{proof}
 
+\setcounter{aufgabe}{15}
+\begin{aufgabe}
+	Es sei $n \in \mathbb N^\times$ und $A = [a_{jk}] \in \mathbb K^{n \times n}$.
+	Die \textbf{Determinante} von $A$, $\det A$, ist gegeben durch
+	\[
+		\det A = \sum_{\sigma \in \mathsf S_n} (\sign \sigma) a_{1 \sigma(1)} \cdots 
+			a_{n \sigma(n)} \ .
+	\]
+	Man zeige, dass die Abbildung
+	\[
+		\mathbb K^{n \times n}  \to \mathbb K, \quad A \mapsto \det A
+	\]
+	stetig ist.
+\end{aufgabe}
+\begin{proof}
+	Durch die Bijektion
+	\[
+		\mathbb K^{n \times n} \to \mathbb K^{n \cdot n}, \quad
+		\begin{bmatrix} a_{11} & \cdots & a_{1n} \\
+			\vdots & & \vdots \\
+			a_{n1} & \cdots & a_{nn}
+		\end{bmatrix}
+		\mapsto
+		(a_{11}, \ldots, a_{1n}, a_{21}, \ldots a_{nn} )
+	\]
+	lässt sich $\mathbb K^{n \times n}$ mit $\mathbb K^{n \cdot n}$
+	identifizieren.
+
+	Sei
+	\[
+		pr_\sigma: \mathbb K^{n \times n} \to \mathbb K^n, \quad
+		\begin{bmatrix} a_{11} & \cdots & a_{1n} \\
+			\vdots & & \vdots \\
+			a_{n1} & \cdots & a_{nn}
+		\end{bmatrix}
+		\mapsto
+		(a_{1\sigma(1)}, \ldots, a_{n \sigma(n)}) \ .
+	\]
+	Diese Abbildung ist für jedes $\sigma \in \mathsf S_n$ linear und somit nach Aufgabe
+	12 Lipschitz-stetig, also insbesondere stetig.
+
+	Sei weiter 
+	\[
+		( \cdot | \bbone ): \mathbb K^n \to \mathbb K, \quad
+		(x_1, \ldots, x_n) \mapsto x_1 \cdots x_n
+	\]
+	Diese Abbildung ist nach Aufgabe 14 ebenfalls stetig.
+
+	Für $A = [a_{jk}] \in \mathbb K^{n \times n}$ haben wir nun
+	\[
+		\det(A) = \sum_{\sigma \in \mathsf S_n} (\sign \sigma) a_{1 \sigma(1)} \cdots a_{n \sigma(n)}
+			= \sum_{ \sigma \in \mathsf S_n} (\sign \sigma) \left( pr_\sigma(A)) | \bbone \right)
+	\]
+	und da Kompositionen sowie endliche Linearkombinationen von stetigen Abbildungen stetig sind,
+	ist $\det$ stetig.
+
+\end{proof}
+
 
 \section{Topologische Grundbegriffe}
 \section{Kompaktheit}

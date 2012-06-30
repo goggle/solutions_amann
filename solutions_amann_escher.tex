@@ -5,24 +5,26 @@
 \usepackage[T1]{fontenc}
 \usepackage{scrpage2}
 \usepackage{amsmath, amssymb, amsthm}
-\usepackage{listings, color}
+%\usepackage{listings, color}
 \usepackage{graphicx}
 \usepackage[ngerman]{babel}
-\usepackage{moreverb}
+%\usepackage{moreverb}
 %\usepackage{tabularx}
+%\usepackage{bbold}
 
 \KOMAoption{chapterprefix}{}
 
-\lstset{language=Matlab, numbers=left, numberstyle=\tiny, tabsize=4,%
-	keywordstyle=\color{blue}\bfseries, commentstyle=\color{gruen}\ttfamily,%
-	basicstyle=\footnotesize, identifierstyle=\ttfamily, %
-	stringstyle=\color{red}, showstringspaces=false, %
-	stepnumber=5, firstnumber=1, breaklines=true,%
-	numberfirstline=true, emphstyle=\bfseries, frame=single}
+%\lstset{language=Matlab, numbers=left, numberstyle=\tiny, tabsize=4,%
+%	keywordstyle=\color{blue}\bfseries, commentstyle=\color{gruen}\ttfamily,%
+%	basicstyle=\footnotesize, identifierstyle=\ttfamily, %
+%	stringstyle=\color{red}, showstringspaces=false, %
+%	stepnumber=5, firstnumber=1, breaklines=true,%
+%	numberfirstline=true, emphstyle=\bfseries, frame=single}
+%\definecolor{gruen}{rgb}{0.25,0.6,0.1}
 
 \renewcommand{\thechapter}{\Roman{chapter}}
 \renewcommand{\thesection}{\arabic{section}}
-
+\newcommand{\bbone}{1\hspace{-0,9ex}1} 
 
 \newtheoremstyle{aufgabenstyle}%
 	{}%spaceabove
@@ -44,7 +46,6 @@
 %\setheadsepline{0.5pt}
 %\pagestyle{scrheadings}
 
-\definecolor{gruen}{rgb}{0.25,0.6,0.1}
 
 \parindent0pt
 
@@ -64,6 +65,8 @@
 \makeatother 
 
 \DeclareMathOperator{\spann}{span}
+\DeclareMathOperator{\sign}{sign}
+\DeclareMathOperator{\pr}{pr}
 
 
 \begin{document}
@@ -73,6 +76,7 @@
 \date{}
 \maketitle
 \newpage
+
 
 \input{kapitel01}
 \input{kapitel02}
