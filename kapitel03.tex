@@ -81,6 +81,7 @@
 	Dies beweist die Lipschitz-Stetigkeit von $f$.
 \end{proof}
 
+\setcounter{aufgabe}{13}
 \begin{aufgabe}
 	Es seien $(E, (\cdot | \cdot) )$ ein Innenproduktraum und $x_0 \in E$. Dann sind die Abbildungen
 	\[
@@ -153,15 +154,46 @@
 	Für $A = [a_{jk}] \in \mathbb K^{n \times n}$ haben wir nun
 	\[
 		\det(A) = \sum_{\sigma \in \mathsf S_n} (\sign \sigma) a_{1 \sigma(1)} \cdots a_{n \sigma(n)}
-			= \sum_{ \sigma \in \mathsf S_n} (\sign \sigma) \left( pr_\sigma(A)) | \bbone \right)
+			= \sum_{ \sigma \in \mathsf S_n} (\sign \sigma) \left( pr_\sigma(A)) | \bbone \right) \ ,
 	\]
 	und da Kompositionen sowie endliche Linearkombinationen von stetigen Abbildungen stetig sind,
-	ist $\det$ stetig.
-
+	ist die Determinante stetig.
 \end{proof}
 
 
 \section{Topologische Grundbegriffe}
+\setcounter{aufgabe}{11}
+\begin{aufgabe}
+	Es seien $X$ und $Y$ metrische Räume, $f: X \to Y$ eine Abbildung. Man beweise:
+	\[
+		f \text{ ist stetig} \quad \Leftrightarrow \quad f(\overline A) \subset \overline{f(A)}, \ A \subset X
+	\]
+\end{aufgabe}
+\begin{proof}
+	\begin{itemize}
+		\item[\glqq$\Rightarrow$\grqq] Sei $f$ stetig, $A \subset X$ und $x \in \overline A$. Wir zeigen, 
+		dass $f(x) \in \overline {f(A)}$ gilt. Dazu muss nachgewiesen werden, dass $f(x)$ ein 
+		Berührungspunkt von $f(A)$ ist, d.h. dass jede Umgebung $V$ von $f(x)$ in $Y$ einen nicht
+		leeren Durchschnitt mit $f(A)$ hat.
+
+		Sei $V$ eine beliebige Umgebung von $f(x)$ in $Y$. Aufgrund der Stetigkeit von $f$ finden
+		wir eine Umgebung $U$ von $x$ in $X$ so, dass $f(U) \subset V$ gilt. Da $x \in \overline A$, 
+		gibt es einen Punkt $y \in U$ mit $y \in A$, also $y \in A \cap U$. Es folgt
+		$f(y) \in f(A \cap U) \subset f(A) \cap f(U) = f(A) \cap V$, also ist $f(A) \cap V$ nicht leer
+		und es gilt $f(x) \in \overline{ f(A) }$.
+	\item[\glqq$\Leftarrow$\grqq] Es gelte also $f(\overline A) \subset \overline{f(A)}$ für
+		jedes $A \subset X$. Sei $B \subset Y$ abgeschlossen in $Y$ und sei $A := f^{-1}(B)$.
+		Wir zeigen, dass $A$ in $X$ abgeschlossen ist, d.h. dass $A = \overline A$ gilt.
+		Nach Definition von $A$ ist $f(A) = f(f^{-1}(B)) \subset B$.
+		Sei $x \in \overline A$, dann folgt mit der Voraussetzung
+		\[
+			f(x) \in f(\overline A) \subset \overline{ f(A) } \subset \overline B = B \ ,
+		\]
+		also ist $x \in f^{-1}(B) = A$.
+	\end{itemize}
+\end{proof}
+
+
 \section{Kompaktheit}
 \section{Zusammenhang}
 \section{Funktionen in $\mathbb R$}
