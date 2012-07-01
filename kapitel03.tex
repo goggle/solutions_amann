@@ -193,6 +193,28 @@
 	\end{itemize}
 \end{proof}
 
+\setcounter{aufgabe}{20}
+\begin{aufgabe}
+	Es seien $X$ ein metrischer Raum und $A \subset X$. Dann gilt
+	\begin{enumerate}
+		\item[(i)] Ist $A$ vollständig, so ist $A$ abgeschlossen in $X$. Die Umkehrung ist im Allgemeinen
+			falsch.
+		\item[(ii)] Ist $X$ vollständig, so ist $A$ genau dann vollständig, wenn $A$ in $X$
+			abgeschossen ist.
+	\end{enumerate}
+\end{aufgabe}
+\begin{proof}
+	\begin{enumerate}
+		\item[(i)] Sei $x \in \overline A$. Nach Korollar 2.10 gibt es eine Folge $(x_n)$ in $A$
+			mit $x_n \to x$. Insbesondere ist $(x_n)$ eine Cauchyfolge. Da $A$ vollständig ist, 
+			liegt der Grenzwert $x$ in $A$. Also ist $A = \overline A$ und $A$ ist deshalb vollständig.
+		\item[(ii)] Die Hinrichtung ist klar nach (i). Für die Rückrichtung sei $A$ abgeschlossen
+			in $X$ und $(x_n)$ eine Cauchyfolge mit $x_n \in A$. Da $X$ vollständig ist, konvergiert
+			$(x_n)$ gegen einen Grenzwert $x \in X$. Da aber $A$ abgeschlossen ist, ist nach
+			Satz 2.11 $x \in A$. Also ist $A$ vollständig.
+	\end{enumerate}
+\end{proof}
+
 
 \section{Kompaktheit}
 \section{Zusammenhang}
