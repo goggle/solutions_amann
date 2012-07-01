@@ -217,6 +217,34 @@
 
 
 \section{Kompaktheit}
+\begin{aufgabe}
+	Es seien $X_j$, $j = 01, \ldots, n$ metrische Räume. Dann ist $X_1 \times \dots \times X_n$ genau
+	dann kompakt, wenn jedes $X_j$ kompakt ist.
+\end{aufgabe}
+\begin{proof}
+	Sei $X_1 \times \dots \times X_n$ kompakt und $(x_{jm})_m$ eine Folge in $X_j$. Dann ist
+	$(0, \ldots, 0, x_{jm}, 0, \ldots 0)_m$ eine Folge in $X_1 \times \dots \times X_n$ und hat
+	aufgrund der Kompaktheit von $X_1 \times \dots \times X_n$ eine konvergente Teilfolge
+	$(0, \ldots, 0, x_{jm_k}, 0, \ldots, 0)_k$. Also ist $(x_{jm_k})_k$ eine konvergente Teilfolge
+	in $X_j$ und $X_j$ ist somit kompakt.
+
+	Rückrichtung: %TODO!!!
+\end{proof}
+
+\begin{aufgabe}
+	Es seien $X$ ein kompakter metrischer Raum und $Y$ eine Teilmenge von $X$. Man beweise:
+	$Y$ ist genau dann kompakt, wenn $Y$ abgeschlossen ist.
+\end{aufgabe}
+\begin{proof}
+	Die Hinrichtung folgt direkt aus Satz 3.2.
+
+	Für die Rückrichtung nehmen wir an, $Y$ sei abgeschlossen und $(y_n)_n$ eine Folge in $Y$.
+	Da $X$ kompakt ist, hat diese Folge iene konvergente Teilfolge $(y_{n_k})_k$ mit Grenzwert
+	$y \in X$. Da $Y$ abgeschlossen ist, gilt aber $y \in Y$. Also hat jede Folge in $Y$
+	eine konvergente Teilfolge mit Grenzwert in $Y$ und $Y$ ist somit kompakt.
+\end{proof}
+
+
 \section{Zusammenhang}
 \section{Funktionen in $\mathbb R$}
 \section{Die Exponentialfunktion und Verwandte}
