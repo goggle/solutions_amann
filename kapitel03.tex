@@ -218,7 +218,7 @@
 
 \section{Kompaktheit}
 \begin{aufgabe}
-	Es seien $X_j$, $j = 01, \ldots, n$ metrische Räume. Dann ist $X_1 \times \dots \times X_n$ genau
+	Es seien $X_j$, $j = 0,1, \ldots, n$ metrische Räume. Dann ist $X_1 \times \dots \times X_n$ genau
 	dann kompakt, wenn jedes $X_j$ kompakt ist.
 \end{aufgabe}
 \begin{proof}
@@ -228,7 +228,16 @@
 	$(0, \ldots, 0, x_{jm_k}, 0, \ldots, 0)_k$. Also ist $(x_{jm_k})_k$ eine konvergente Teilfolge
 	in $X_j$ und $X_j$ ist somit kompakt.
 
-	Rückrichtung: %TODO!!!
+	Für die Rückrichtung reicht es zu zeigen, dass für zwei kompakte metrische Räume $X$ und $Y$
+	$X \times Y$ wieder kompakt ist. Sei $(x_n, y_n)_n$ eine Folge in $X \times Y$. Dann ist
+	$(x_n)$ eine Folge in $X$ und $(y_n)$ eine Folge in $Y$. Wegen der Kompaktheit von 
+	$X$ hat $(x_n)$ eine konvergente Teilfolge $(x_{n_k})_k$, d.h.
+	$\displaystyle \lim_{k \to \infty} x_{n_k} = x \in X$. Aufgrund der Kompaktheit von $Y$ gibt
+	es eine konvergente Teilfolge $(y_{n_{k_j}})_j$, d.h.
+	$\displaystyle \lim_{j \to \infty} y_{n_{k_j}} = y \in Y$.
+	Dann ist aber $(x_{n_{k_j}})_j)$ wiederum eine Teilfolge von $(x_{n_k})_k$ und hat
+	denselben Grenzwert $x$. Also ist die Folge $(x_{n_{k_j}}, y_{n_{k_j}})$ eine 
+	konvergente Teilfolge von $(x_n, y_n)$ und es folgt, dass $X \times Y$ kompakt ist.
 \end{proof}
 
 \begin{aufgabe}
